@@ -410,7 +410,7 @@ resources:
         boot: true
         initializeParams:
           diskName: {{ BASE_NAME }}-disk
-          sourceImage: /projects/lateral-ceiling-331819/global/images/flatcar-stable
+          sourceImage: {{ GlobalComputeUrl('practiceanalytics-dev', 'images', 'flatcar-stable') }}
           diskSizeGb: 14
       - deviceName: {{ BASE_NAME }}-data
         type: PERSISTENT
