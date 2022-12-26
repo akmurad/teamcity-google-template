@@ -18,6 +18,8 @@ limitations under the License.
 resources:
 - name: {{ BASE_NAME }}
   type: compute.v1.network
+  properties:
+    autoCreateSubnetworks: true
 
 - name: {{ BASE_NAME }}-allow-http
   type: compute.v1.firewall
