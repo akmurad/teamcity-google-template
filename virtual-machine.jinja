@@ -241,7 +241,7 @@ resources:
 {%- raw %}
                 ExecStartPre=/bin/sh -c "docker images --filter 'before=jetbrains/teamcity-server:${TEAMCITY_VERSION}' --format '{{.ID}} {{.Repository}}' | grep 'jetbrains/teamcity-server' | grep -Eo '^[^ ]+' | xargs -r docker rmi"
 {%- endraw %}
-                ExecStartPre=/usr/bin/docker create \
+                ExecStartPre=/usr/bin/docker create --user 0 \
                   -e TEAMCITY_SERVER_MEM_OPTS="-Xmx$(($(grep MemTotal /proc/meminfo | awk '{print $2}') / 2))k -XX:MaxPermSize=270m -XX:ReservedCodeCacheSize=350m" \
 {%- if properties['enableHttps'] %}
                   -e VIRTUAL_PORT=8111 \
