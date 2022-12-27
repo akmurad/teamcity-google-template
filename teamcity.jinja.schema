@@ -40,7 +40,7 @@ properties:
   version:
     description: The version of TeamCity
     type: string
-    default: "2022.10"
+    default: "2022.10.1"
 
   installationSize:
     description: The size of installation
